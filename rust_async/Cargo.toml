@@ -1,0 +1,13 @@
+[package]
+name = "mcap_async"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+byteorder = "1"
+crc32fast = "1"
+thiserror = "1"
+mcap = { path = "../rust" }
+async-compression = { version = "*", features = ["tokio", "zstd"]}
+tokio = { version = "1", features = ["full"] }
+binrw = "0.12.0"
