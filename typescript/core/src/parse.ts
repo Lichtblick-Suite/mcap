@@ -245,7 +245,7 @@ export function parseRecord({
       const name = reader.string();
       const mediaType = reader.string();
       const dataLen = reader.uint64();
-      if (BigInt(recordView.byteOffset + reader.offset) + dataLen > Number.MAX_SAFE_INTEGER) {
+      if (recordView.byteOffset + reader.offset + dataLen > Number.MAX_SAFE_INTEGER) {
         throw new Error(`Attachment too large: ${dataLen}`);
       }
       if (reader.offset + Number(dataLen) + 4 /*crc*/ > recordView.byteLength) {
